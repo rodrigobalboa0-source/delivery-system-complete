@@ -1,0 +1,25 @@
+{
+  "name": "delivery-system-complete",
+  "version": "1.0.0",
+  "description": "Sistema completo de delivery com app para entregadores e plataforma para comerciantes",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install && npm --prefix backend install && npm --prefix web-merchant install && npm --prefix web-admin install && npm --prefix mobile-driver install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:web-merchant\" \"npm run dev:web-admin\"",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:web-merchant": "npm --prefix web-merchant start",
+    "dev:web-admin": "npm --prefix web-admin start",
+    "dev:mobile": "npm --prefix mobile-driver start",
+    "build": "npm run build:backend && npm run build:web-merchant && npm run build:web-admin",
+    "build:backend": "npm --prefix backend run build",
+    "build:web-merchant": "npm --prefix web-merchant run build",
+    "build:web-admin": "npm --prefix web-admin run build",
+    "db:migrate": "npm --prefix backend run migrate",
+    "db:seed": "npm --prefix backend run seed",
+    "test": "npm --prefix backend run test",
+    "lint": "npm --prefix backend run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
